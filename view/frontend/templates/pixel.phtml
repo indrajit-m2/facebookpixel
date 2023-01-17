@@ -1,0 +1,47 @@
+<?php
+/**
+ * @var Indrajit\FacebookPixel\Block\Pixel $block
+ * */
+
+$isDisabled         = $block->isDisabledPage();
+$pixelData          = $block->getFacebookPixelData();
+$id                 = $pixelData['id'];
+$actionName         = $pixelData['action'];
+$registration       = $block->getRegistration();
+$productViewData    = $block->getProduct();
+$categoryViewData   = $block->getCurrentCategory();
+$searchData         = $block->getSearchData();
+$addToWishList      = $block->getAddToWishListData();
+$initiateCheckout   = $block->getInitiateCheckout();
+$orderData          = $block->getPurchase();
+$isQuickSearch      = $block->isQuickSearch();
+
+?>
+<!-- Start of Indrajit FacebookPixel -->
+<script type="text/x-magento-init">
+    {
+    "*":
+    {
+            "Indrajit_FacebookPixel/js/pixel": {
+                "id"                : <?=$block->escapeHtml($id); ?>,
+                "action"            : "<?=$actionName; ?>",
+                "registration"      : <?=$registration; ?>,
+                "isDisabled"        : "<?= $isDisabled; ?>",
+                "productViewData"   : <?= $productViewData?>,
+                "categoryViewData"  : <?= $categoryViewData?>,
+                "searchData"        : "<?= $searchData?>",
+                "addToWishList"     : <?= $addToWishList?>,
+                "initiateCheckout"  : <?=$initiateCheckout?>,
+                "orderData"         : <?= $orderData?>,
+                "quickSearch"       : <?= $isQuickSearch ?>
+            }
+        }
+    }
+</script>
+<noscript>
+    <img height="1" width="1"
+         src="https://www.facebook.com/tr?id=<?=$id?>&ev=PageView
+&noscript=1" style="display: none"/>
+</noscript>
+<!-- End of Indrajit FacebookPixel-->
+

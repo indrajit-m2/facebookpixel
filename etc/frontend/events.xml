@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_register_success">
+        <observer name="indrajit_pixel_register_customer" instance="Indrajit\FacebookPixel\Observer\CustomerRegister"/>
+    </event>
+    <event name="sales_quote_product_add_after">
+        <observer name="indrajit_pixel_add_to_cart" instance="Indrajit\FacebookPixel\Observer\AddToCart"/>
+    </event>
+    <event name="newsletter_subscriber_save_after">
+        <observer name="indrajit_pixel_subcribe" instance="Indrajit\FacebookPixel\Observer\Subscribe" />
+    </event>
+    <event name="wishlist_add_product">
+        <observer name="indrajit_pixel_add_to_wishlist" instance="Indrajit\FacebookPixel\Observer\AddToWishlist" />
+    </event>
+    <event name="controller_action_predispatch_catalogsearch_result_index">
+        <observer name="indrajit_pixel_search_result_index" instance="Indrajit\FacebookPixel\Observer\CatalogSearch" />
+    </event>
+    <event name="controller_action_predispatch_catalogsearch_advanced_result">
+        <observer name="indrajit_pixel_search_advanced_result" instance="Indrajit\FacebookPixel\Observer\CatalogSearch" />
+    </event>
+    <event name="controller_action_predispatch_multishipping_checkout_index">
+        <observer name="indrajit_pixel_initiate_checkout_multishipping" instance="Indrajit\FacebookPixel\Observer\CheckoutInitiate" />
+    </event>
+    <event name="controller_action_predispatch_checkout_onepage_index">
+        <observer name="indrajit_pixel_initiate_checkout_onepage" instance="Indrajit\FacebookPixel\Observer\CheckoutInitiate" />
+    </event>
+    <event name="controller_action_predispatch_checkout_index_index">
+        <observer name="indrajit_pixel_initiate_checkout_index_index" instance="Indrajit\FacebookPixel\Observer\CheckoutInitiate" />
+    </event>
+</config>

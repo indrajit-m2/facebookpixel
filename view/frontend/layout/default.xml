@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Indrajit\FacebookPixel\Block\Pixel"
+                   name="indrajit.pixel"
+                   template="Indrajit_FacebookPixel::pixel.phtml"
+                   before="-"
+                   ifconfig="indrajit_facebook_pixel/general/active">
+            </block>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="indrajit_subscribe_section"
+                   template="Indrajit_FacebookPixel::subscribeSection.phtml"
+                   ifconfig="indrajit_facebook_pixel/general/active"
+                   after="indrajit.pixel"/>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="indrajit_add_to_cart_section"
+                   template="Indrajit_FacebookPixel::addTocart.phtml"
+                   ifconfig="indrajit_facebook_pixel/general/active"
+                   after="indrajit.pixel"/>
+        </referenceContainer>
+    </body>
+</page>
